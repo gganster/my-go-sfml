@@ -1,7 +1,13 @@
 # Démarrage rapide
 ## 1.Win - Environnement windows
-- télécharger CSFML2.5.1, placer le dossier décompressé à la racine (C:/CSFML_2.5.1). Le chemin d'accès doit être exact.
+- télécharger CSFML2.5.1, placer le dossier décompressé à la racine (C:/CSFML_2.5.1). Le chemin d'accès doit être exact. (https://www.sfml-dev.org/files/CSFML-2.5.1-windows-64-bit.zip)
 - installer mingw. La commande gcc doit être accessible dans le terminal (redémarrer la console si nécessaire)
+  ```
+  Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+  ```
+  ```
+  choco install mingw
+  ```
 - passer à l'étape 2.Win
 
 ## 1.Unix Environnement mac os
