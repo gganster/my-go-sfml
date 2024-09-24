@@ -1,13 +1,9 @@
 package g
 
-func MyWindow_getMouseX(o *MyWindow) float32 { return float32(o.mouseX) }
-func MyWindow_getMouseY(o *MyWindow) float32 { return float32(o.mouseY) }
-func MyWindow_isMouseLeftPressed(o *MyWindow) bool {
-	return (o.mouseLeftClick == 1)
-}
-func MyWindow_isMouseRightPressed(o *MyWindow) bool {
-	return (o.mouseRightClick == 1)
-}
+func MyWindow_getMouseX(o *MyWindow) float32        { return float32(o.mouseX) }
+func MyWindow_getMouseY(o *MyWindow) float32        { return float32(o.mouseY) }
+func MyWindow_isMouseLeftPressed(o *MyWindow) bool  { return (o.mouseLeftClick == 1) }
+func MyWindow_isMouseRightPressed(o *MyWindow) bool { return (o.mouseRightClick == 1) }
 func MyWindow_isMouseLeftPressedOnce(o *MyWindow) bool {
 	if MyWindow_isMouseLeftPressed(o) && o.mouseLeftClickOnce == 0 {
 		o.mouseLeftClickOnce = 1
