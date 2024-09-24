@@ -1,4 +1,4 @@
-package libsfml
+package g
 
 import (
 	"github.com/telroshan/go-sfml/v2/graphics"
