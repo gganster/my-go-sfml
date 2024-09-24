@@ -23,6 +23,7 @@ func MyWindow_create(title string, width uint, height uint) *MyWindow {
 		cs,
 		w,
 		ev,
+		0, 0, 0, 0, 0, 0, //mouse
 		0, 0, 0, 0, 0, //arrows and space
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //letters
 		0, 0, 0, 0, 0, //pressedOnce

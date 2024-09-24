@@ -13,6 +13,25 @@ func MyWindow_update(o *MyWindow) int {
 		}
 
 		switch o.ev.GetEvType() {
+		case window.SfEventType(window.SfEvtMouseMoved):
+			o.mouseX = o.ev.GetMouseMove().GetX()
+			o.mouseY = o.ev.GetMouseMove().GetY()
+		case window.SfEventType(window.SfEvtMouseButtonPressed):
+			if o.ev.GetMouseButton().GetButton() == window.SfMouseButton(window.SfMouseLeft) {
+				o.mouseLeftClick = 1
+			}
+			if o.ev.GetMouseButton().GetButton() == window.SfMouseButton(window.SfMouseRight) {
+				o.mouseRightClick = 1
+			}
+		case window.SfEventType(window.SfEvtMouseButtonReleased):
+			if o.ev.GetMouseButton().GetButton() == window.SfMouseButton(window.SfMouseLeft) {
+				o.mouseLeftClick = 0
+				o.mouseLeftClickOnce = 0
+			}
+			if o.ev.GetMouseButton().GetButton() == window.SfMouseButton(window.SfMouseRight) {
+				o.mouseRightClick = 0
+				o.mouseRightClickOnce = 0
+			}
 		case window.SfEventType(window.SfEvtKeyPressed):
 
 			switch o.ev.GetKey().GetCode() {
@@ -81,7 +100,6 @@ func MyWindow_update(o *MyWindow) int {
 			case window.SfKeyCode(window.SfKeyZ):
 				o.isZPressed = 1
 			}
-
 		case window.SfEventType(window.SfEvtKeyReleased):
 			switch o.ev.GetKey().GetCode() {
 			case window.SfKeyCode(window.SfKeyUp):

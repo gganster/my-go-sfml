@@ -12,6 +12,17 @@ type MyWindow struct {
 	w  graphics.Struct_SS_sfRenderWindow
 	ev window.SfEvent
 
+	// -------- for mouse --------//
+
+	mouseX              int
+	mouseY              int
+	mouseLeftClick      int
+	mouseRightClick     int
+	mouseLeftClickOnce  int
+	mouseRightClickOnce int
+
+	// -------- for keyboard --------//
+
 	IsArrowUpPressed    int
 	IsArrowDownPressed  int
 	IsArrowLeftPressed  int
