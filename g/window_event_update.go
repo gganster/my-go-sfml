@@ -86,6 +86,7 @@ func MyWindow_update(o *MyWindow) int {
 			switch o.ev.GetKey().GetCode() {
 			case window.SfKeyCode(window.SfKeyUp):
 				o.IsArrowUpPressed = 0
+				o.pressedOnceArrowUp = 0
 			case window.SfKeyCode(window.SfKeyDown):
 				o.IsArrowDownPressed = 0
 			case window.SfKeyCode(window.SfKeyLeft):

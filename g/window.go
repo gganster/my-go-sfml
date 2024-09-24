@@ -5,47 +5,6 @@ import (
 	"github.com/telroshan/go-sfml/v2/window"
 )
 
-type MyWindow struct {
-	// -------- private --------//
-	vm window.SfVideoMode
-	cs window.SfContextSettings
-	w  graphics.Struct_SS_sfRenderWindow
-	ev window.SfEvent
-
-	IsArrowUpPressed    int
-	IsArrowDownPressed  int
-	IsArrowLeftPressed  int
-	IsArrowRightPressed int
-	IsSpacePressed      int
-
-	isAPressed int
-	isBPressed int
-	isCPressed int
-	isDPressed int
-	isEPressed int
-	isFPressed int
-	isGPressed int
-	isHPressed int
-	isIPressed int
-	isJPressed int
-	isKPressed int
-	isLPressed int
-	isMPressed int
-	isNPressed int
-	isOPressed int
-	isPPressed int
-	isQPressed int
-	isRPressed int
-	isSPressed int
-	isTPressed int
-	isUPressed int
-	isVPressed int
-	isWPressed int
-	isXPressed int
-	isYPressed int
-	isZPressed int
-}
-
 func MyWindow_create(title string, width uint, height uint) *MyWindow {
 	vm := window.NewSfVideoMode()
 	vm.SetWidth(width)
@@ -65,6 +24,8 @@ func MyWindow_create(title string, width uint, height uint) *MyWindow {
 		w,
 		ev,
 		0, 0, 0, 0, 0, //arrows and space
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //letters
+		0, 0, 0, 0, 0, //pressedOnce
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //letters
 	}
 

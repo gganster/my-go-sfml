@@ -1,6 +1,9 @@
 package main
 
-import . "sfml/g"
+import (
+	"fmt"
+	. "sfml/g"
+)
 
 func main() {
 	w := MyWindow_create("SFML Window", 800, 600)
@@ -34,6 +37,9 @@ func main() {
 				MyRect_setWidth(r, MyRect_getWidth(r)+3)
 			}
 		*/
+		if MyWindow_isArrowUpPressedOnce(w) {
+			fmt.Println("Arrow Up pressed once")
+		}
 		//update circle position
 		MyCircle_setPosition(
 			c,
