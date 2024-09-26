@@ -1,10 +1,12 @@
 package g
 
 import (
+	"time"
+
 	"github.com/telroshan/go-sfml/v2/window"
 )
 
-func MyWindow_update(o *MyWindow) int {
+func MyWindow_update(o *MyWindow, nsec *int64) int {
 	for window.SfWindow_pollEvent(o.w, o.ev) > 0 {
 		if o.ev.GetEvType() == window.SfEventType(window.SfEvtClosed) ||
 			(o.ev.GetEvType() == window.SfEventType(window.SfEvtKeyPressed) && o.ev.GetKey().GetCode() == window.SfKeyCode(window.SfKeyEscape)) {
@@ -168,6 +170,11 @@ func MyWindow_update(o *MyWindow) int {
 				o.isZPressed = 0
 			}
 		}
+	}
+
+	//limit the frame rate
+	for time.Now().UnixNano()-(*nsec) < 16666667 {
+		*nsec = time.Now().UnixNano()
 	}
 	return CTrue
 }

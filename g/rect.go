@@ -13,17 +13,20 @@ type MyRect struct {
 	red   byte
 	green byte
 	blue  byte
+
+	rotation float32 //deg
 }
 
 func MyRect_create() *MyRect {
 	o := MyRect{
-		x:      0,
-		y:      0,
-		width:  50,
-		height: 50,
-		red:    255,
-		green:  255,
-		blue:   255,
+		x:        0,
+		y:        0,
+		width:    50,
+		height:   50,
+		red:      255,
+		green:    255,
+		blue:     255,
+		rotation: 0, //deg
 	}
 	return &o
 }
@@ -35,8 +38,11 @@ func MyRect_destroy(o *MyRect) {
 
 func MyRect_display(o *MyRect, w *MyWindow) {
 	rect := graphics.SfRectangleShape_create()
+	graphics.SfRectangleShape_setOrigin(rect, MakeVector2(o.width/2, o.height/2))
 	graphics.SfRectangleShape_setSize(rect, MakeVector2(o.width, o.height))
+	graphics.SfRectangleShape_setRotation(rect, o.rotation)
 	graphics.SfRectangleShape_setPosition(rect, MakeVector2(o.x, o.y))
+	graphics.SfRectangleShape_setOrigin(rect, MakeVector2(0, 0))
 	graphics.SfRectangleShape_setFillColor(rect, graphics.SfColor_fromRGB(o.red, o.green, o.blue))
 	graphics.SfRenderWindow_drawRectangleShape(w.w, rect, GetNullRenderState())
 	graphics.SfRectangleShape_destroy(rect)
@@ -56,6 +62,10 @@ func MyRect_setWidth(o *MyRect, w float32) {
 func MyRect_setHeight(o *MyRect, h float32) {
 	o.height = h
 }
+func MyRect_setSize(o *MyRect, w, h float32) {
+	o.width = w
+	o.height = h
+}
 func MyRect_setColor(o *MyRect, r, g, b byte) {
 	o.red = r
 	o.green = g
@@ -64,6 +74,9 @@ func MyRect_setColor(o *MyRect, r, g, b byte) {
 func MyRect_setPosition(o *MyRect, x, y float32) {
 	o.x = x
 	o.y = y
+}
+func MyRect_setRotation(o *MyRect, r float32) {
+	o.rotation = r
 }
 
 //------------------------------------------------------------//
@@ -85,4 +98,7 @@ func MyRect_getX(o *MyRect) float32 {
 }
 func MyRect_getY(o *MyRect) float32 {
 	return o.y
+}
+func MyRect_getRotation(o *MyRect) float32 {
+	return o.rotation
 }
