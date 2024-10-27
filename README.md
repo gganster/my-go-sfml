@@ -83,6 +83,26 @@ func MyCircle_getX(o *MyCircle) float32
 func MyCircle_getY(o *MyCircle) float32
 ```
 
+#### MyText
+```go
+func MyText_create() *MyText
+func MyText_destroy(o *MyText)
+func MyText_display(o *MyText, w *MyWindow)
+
+func MyText_setX(o *MyText, x float32)
+func MyText_setY(o *MyText, y float32)
+func MyText_setSize(o *MyText, s int)
+func MyText_setText(o *MyText, t string)
+func MyText_setColor(o *MyText, r, g, b byte)
+func MyText_setPosition(o *MyText, x, y float32)
+
+func MyText_getX(o *MyText) float32
+func MyText_getY(o *MyText) float32
+func MyText_getSize(o *MyText) int
+func MyText_getText(o *MyText) string
+func MyText_getColor(o *MyText) (byte, byte, byte)
+```
+
 ### Evenements
 Les évènements sont disponibles dans l'object Window via les fonctions d'accès.
 

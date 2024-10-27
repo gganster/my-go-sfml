@@ -38,11 +38,8 @@ func MyRect_destroy(o *MyRect) {
 
 func MyRect_display(o *MyRect, w *MyWindow) {
 	rect := graphics.SfRectangleShape_create()
-	graphics.SfRectangleShape_setOrigin(rect, MakeVector2(o.width/2, o.height/2))
 	graphics.SfRectangleShape_setSize(rect, MakeVector2(o.width, o.height))
-	graphics.SfRectangleShape_setRotation(rect, o.rotation)
 	graphics.SfRectangleShape_setPosition(rect, MakeVector2(o.x, o.y))
-	graphics.SfRectangleShape_setOrigin(rect, MakeVector2(0, 0))
 	graphics.SfRectangleShape_setFillColor(rect, graphics.SfColor_fromRGB(o.red, o.green, o.blue))
 	graphics.SfRenderWindow_drawRectangleShape(w.w, rect, GetNullRenderState())
 	graphics.SfRectangleShape_destroy(rect)
@@ -74,9 +71,6 @@ func MyRect_setColor(o *MyRect, r, g, b byte) {
 func MyRect_setPosition(o *MyRect, x, y float32) {
 	o.x = x
 	o.y = y
-}
-func MyRect_setRotation(o *MyRect, r float32) {
-	o.rotation = r
 }
 
 //------------------------------------------------------------//
